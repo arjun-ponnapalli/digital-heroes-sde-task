@@ -125,3 +125,11 @@ STATICFILES_DIRS = [
 import os
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# settings.py
+
+ALLOWED_HOSTS = [
+    'digital-heroes-sde-task-9m82rn2dh-arjun-8774.vercel.app',
+    '.vercel.app',  # Allows all Vercel preview & production URLs
+    '127.0.0.1',
+    'localhost',
+]
