@@ -1,0 +1,289 @@
+/* CSS Reset and Variables */
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --error-bg: #fef2f2;
+    --error-text: #b91c1c;
+    --error-border: #fca5a5;
+    --success-text: #15803d;
+    --radius: 8px;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --font-family: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Layout */
+.app-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Header */
+.app-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.app-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.app-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* Input Section */
+.input-section {
+    margin-bottom: 2rem;
+}
+
+.analyze-form {
+    display: flex;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.analyze-form input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+}
+
+.analyze-form input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.analyze-form button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: inherit;
+}
+
+.analyze-form button:hover {
+    background-color: var(--primary-hover);
+}
+
+.analyze-form button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* States */
+.hidden {
+    display: none !important;
+}
+
+.state-section {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+/* Loading Spinner */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-message {
+    color: var(--text-muted);
+}
+
+/* Error State */
+.error-box {
+    background-color: var(--error-bg);
+    border: 1px solid var(--error-border);
+}
+
+.error-box h3 {
+    color: var(--error-text);
+    margin-bottom: 0.5rem;
+}
+
+.error-box p {
+    color: var(--error-text);
+    opacity: 0.9;
+}
+
+/* Dashboard */
+.dashboard-section {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-header {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.result-url {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    word-break: break-all;
+}
+
+/* Metrics Grid (CSS Grid) */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.metric-card {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+}
+
+.metric-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    margin-right: 1rem;
+    opacity: 0.1;
+}
+
+.metric-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.metric-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* Text Metrics */
+.text-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.text-metric {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+}
+
+.text-metric h4 {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.text-metric p {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Footer */
+.app-footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: auto;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.app-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.app-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .analyze-form {
+        flex-direction: column;
+    }
+    
+    .dashboard-section {
+        padding: 1.5rem 1rem;
+    }
+}
